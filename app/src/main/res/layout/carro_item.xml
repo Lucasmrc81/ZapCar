@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cv_car"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardBackgroundColor="@color/cart"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_card_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/iv_favorite"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_margin="16dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true"
+                android:src="@drawable/star_border"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/urlPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/cooper"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/nome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginTop="11dp"
+                android:text="@string/carro_1"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/urlPhoto"
+                app:layout_constraintTop_toBottomOf="@id/urlPhoto" />
+
+            <TextView
+                android:id="@+id/marca_1"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/marca"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/nome"
+                />
+            <TextView
+                android:id="@+id/marca"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:text="@string/cooper_preco"
+                app:layout_constraintStart_toEndOf="@id/marca_1"
+                app:layout_constraintTop_toBottomOf="@id/nome"/>
+
+            <TextView
+                android:id="@+id/Tv_preco_1"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/preco"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/marca_1" />
+
+            <TextView
+                android:id="@+id/Tv_preco_Value_1"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/cooper_preco"
+                app:layout_constraintStart_toEndOf="@id/Tv_preco_1"
+                app:layout_constraintTop_toBottomOf="@id/marca" />
+
+            <TextView
+                android:id="@+id/Tv_bateria_1"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/bateria"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Tv_preco_1" />
+
+            <TextView
+                android:id="@+id/Tv_bateria_value_1"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/cooper_kwh"
+                app:layout_constraintStart_toEndOf="@id/Tv_bateria_1"
+                app:layout_constraintTop_toTopOf="@id/Tv_bateria_1" />
+
+            <TextView
+                android:id="@+id/tv_potencia_1"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/potencia"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/Tv_bateria_1" />
+
+            <TextView
+                android:id="@+id/tv_potencia_value_1"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/cooper_cv"
+                app:layout_constraintStart_toEndOf="@id/tv_potencia_1"
+                app:layout_constraintTop_toTopOf="@id/tv_potencia_1" />
+
+            <TextView
+                android:id="@+id/tv_recarga_1"
+                style="@style/TextAppearance.AppCompat.Body2"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:text="@string/recarga"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_potencia_value_1" />
+
+            <TextView
+                android:id="@+id/tv_recarga_value_1"
+                style="@style/TextAppearance.AppCompat.Body1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="@string/cooper_hs"
+                app:layout_constraintBottom_toBottomOf="@id/cl_card_content"
+                app:layout_constraintStart_toEndOf="@id/tv_recarga_1"
+                app:layout_constraintTop_toTopOf="@+id/tv_recarga_1" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

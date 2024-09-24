@@ -1,0 +1,590 @@
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/gradle.xml b/.idea/gradle.xml
+new file mode 100644
+--- /dev/null	(date 1722121826071)
++++ b/.idea/gradle.xml	(date 1722121826071)
+@@ -0,0 +1,19 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
++  <component name="GradleSettings">
++    <option name="linkedExternalProjectsSettings">
++      <GradleProjectSettings>
++        <option name="externalProjectPath" value="$PROJECT_DIR$" />
++        <option name="gradleJvm" value="#GRADLE_LOCAL_JAVA_HOME" />
++        <option name="modules">
++          <set>
++            <option value="$PROJECT_DIR$" />
++            <option value="$PROJECT_DIR$/app" />
++          </set>
++        </option>
++        <option name="resolveExternalAnnotations" value="false" />
++      </GradleProjectSettings>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: app/src/main/java/com/example/zapcar/ui/CalculaAutonomiaActivity.kt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/app/src/main/java/com/example/zapcar/ui/CalculaAutonomiaActivity.kt b/app/src/main/java/com/example/zapcar/ui/CalculaAutonomiaActivity.kt
+new file mode 100644
+--- /dev/null	(date 1724456424879)
++++ b/app/src/main/java/com/example/zapcar/ui/CalculaAutonomiaActivity.kt	(date 1724456424879)
+@@ -0,0 +1,58 @@
++package com.example.zapcar.ui
++
++import android.content.Context
++import android.os.Bundle
++import android.widget.Button
++import android.widget.EditText
++import android.widget.TextView
++import androidx.appcompat.app.AppCompatActivity
++import androidx.cardview.widget.CardView
++import com.example.zapcar.R
++
++class CalculaAutonomiaActivity : AppCompatActivity() {
++    private lateinit var preco: EditText
++    private lateinit var kmPercorrido: EditText
++    private lateinit var resultado: TextView
++    private lateinit var btnCalcula: Button
++    private lateinit var btnClose: CardView
++
++    override fun onCreate(savedInstanceState: Bundle?) {
++        super.onCreate(savedInstanceState)
++        setContentView(R.layout.activity_calcular_autonomia)
++        setupView()
++        setupListeners()
++    }
++
++    private fun setupView() {
++        preco = findViewById(R.id.Et_kmh)
++        kmPercorrido = findViewById(R.id.Et_km_percorrido)
++        resultado = findViewById(R.id.Tv_resultado)
++        btnCalcula = findViewById(R.id.btn_calcular)
++        btnClose = findViewById(R.id.iV_close) as CardView
++    }
++
++    private fun setupListeners() {
++        btnCalcula.setOnClickListener {
++            calcular()
++        }
++        btnClose.setOnClickListener {
++            finish()
++        }
++    }
++
++    fun calcular() {
++        val precoValue = preco.text.toString().toFloatOrNull() ?: 0f
++        val kmValue = kmPercorrido.text.toString().toFloatOrNull() ?: 0f
++        val result = if (kmValue != 0f) precoValue / kmValue else 0f
++        resultado.text = result.toString()
++        saveShared(result)
++    }
++
++    fun saveShared(resultado: Float) {
++        val sharedPref = getPreferences(Context.MODE_PRIVATE) ?: return
++        with(sharedPref.edit()) {
++            putFloat(getString(R.string.saved_calc), resultado)
++            apply()
++        }
++    }
++}
+Index: .idea/kotlinc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/kotlinc.xml b/.idea/kotlinc.xml
+new file mode 100644
+--- /dev/null	(date 1722097696345)
++++ b/.idea/kotlinc.xml	(date 1722097696345)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="KotlinJpsPluginSettings">
++    <option name="version" value="1.9.0" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/migrations.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/migrations.xml b/.idea/migrations.xml
+new file mode 100644
+--- /dev/null	(date 1722096706784)
++++ b/.idea/migrations.xml	(date 1722096706784)
+@@ -0,0 +1,10 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="ProjectMigrations">
++    <option name="MigrateToGradleLocalJavaHome">
++      <set>
++        <option value="$PROJECT_DIR$" />
++      </set>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1727148918289)
++++ b/.idea/vcs.xml	(date 1727148918289)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="$PROJECT_DIR$" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/.gitignore b/.idea/.gitignore
+new file mode 100644
+--- /dev/null	(date 1722096707323)
++++ b/.idea/.gitignore	(date 1722096707323)
+@@ -0,0 +1,3 @@
++# Default ignored files
++/shelf/
++/workspace.xml
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1722097696189)
++++ b/.idea/compiler.xml	(date 1722097696189)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <bytecodeTargetLevel target="17" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/appInsightsSettings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/appInsightsSettings.xml b/.idea/appInsightsSettings.xml
+new file mode 100644
+--- /dev/null	(date 1727128294239)
++++ b/.idea/appInsightsSettings.xml	(date 1727128294239)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AppInsightsSettings">
++    <option name="selectedTabId" value="Android Vitals" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+new file mode 100644
+--- /dev/null	(date 1727111661873)
++++ b/.idea/misc.xml	(date 1727111661873)
+@@ -0,0 +1,9 @@
++<project version="4">
++  <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="jbr-17" project-jdk-type="JavaSDK">
++    <output url="file://$PROJECT_DIR$/build/classes" />
++  </component>
++  <component name="ProjectType">
++    <option name="id" value="Android" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/deploymentTargetSelector.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/deploymentTargetSelector.xml b/.idea/deploymentTargetSelector.xml
+new file mode 100644
+--- /dev/null	(date 1724454245040)
++++ b/.idea/deploymentTargetSelector.xml	(date 1724454245040)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="deploymentTargetSelector">
++    <selectionStates>
++      <SelectionState runConfigName="app">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++      <SelectionState runConfigName="CalculaAutonomiaActivity">
++        <option name="selectionMode" value="DROPDOWN" />
++      </SelectionState>
++    </selectionStates>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/other.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/other.xml b/.idea/other.xml
+new file mode 100644
+--- /dev/null	(date 1724810116428)
++++ b/.idea/other.xml	(date 1724810116428)
+@@ -0,0 +1,318 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="direct_access_persist.xml">
++    <option name="deviceSelectionList">
++      <list>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="27" />
++          <option name="brand" value="DOCOMO" />
++          <option name="codename" value="F01L" />
++          <option name="id" value="F01L" />
++          <option name="manufacturer" value="FUJITSU" />
++          <option name="name" value="F-01L" />
++          <option name="screenDensity" value="360" />
++          <option name="screenX" value="720" />
++          <option name="screenY" value="1280" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="28" />
++          <option name="brand" value="DOCOMO" />
++          <option name="codename" value="SH-01L" />
++          <option name="id" value="SH-01L" />
++          <option name="manufacturer" value="SHARP" />
++          <option name="name" value="AQUOS sense2 SH-01L" />
++          <option name="screenDensity" value="480" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2160" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="31" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="a51" />
++          <option name="id" value="a51" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy A51" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="akita" />
++          <option name="id" value="akita" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 8a" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="b0q" />
++          <option name="id" value="b0q" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy S22 Ultra" />
++          <option name="screenDensity" value="600" />
++          <option name="screenX" value="1440" />
++          <option name="screenY" value="3088" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="32" />
++          <option name="brand" value="google" />
++          <option name="codename" value="bluejay" />
++          <option name="id" value="bluejay" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 6a" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="caiman" />
++          <option name="id" value="caiman" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 9 Pro" />
++          <option name="screenDensity" value="360" />
++          <option name="screenX" value="960" />
++          <option name="screenY" value="2142" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="comet" />
++          <option name="id" value="comet" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 9 Pro Fold" />
++          <option name="screenDensity" value="390" />
++          <option name="screenX" value="2076" />
++          <option name="screenY" value="2152" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="29" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="crownqlteue" />
++          <option name="id" value="crownqlteue" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy Note9" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="2220" />
++          <option name="screenY" value="1080" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="dm3q" />
++          <option name="id" value="dm3q" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy S23 Ultra" />
++          <option name="screenDensity" value="600" />
++          <option name="screenX" value="1440" />
++          <option name="screenY" value="3088" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="e1q" />
++          <option name="id" value="e1q" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy S24" />
++          <option name="screenDensity" value="480" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2340" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="google" />
++          <option name="codename" value="felix" />
++          <option name="id" value="felix" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel Fold" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="2208" />
++          <option name="screenY" value="1840" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="felix" />
++          <option name="id" value="felix" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel Fold" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="2208" />
++          <option name="screenY" value="1840" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="google" />
++          <option name="codename" value="felix_camera" />
++          <option name="id" value="felix_camera" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel Fold (Camera-enabled)" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="2208" />
++          <option name="screenY" value="1840" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="gts8uwifi" />
++          <option name="id" value="gts8uwifi" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy Tab S8 Ultra" />
++          <option name="screenDensity" value="320" />
++          <option name="screenX" value="1848" />
++          <option name="screenY" value="2960" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="husky" />
++          <option name="id" value="husky" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 8 Pro" />
++          <option name="screenDensity" value="390" />
++          <option name="screenX" value="1008" />
++          <option name="screenY" value="2244" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="30" />
++          <option name="brand" value="motorola" />
++          <option name="codename" value="java" />
++          <option name="id" value="java" />
++          <option name="manufacturer" value="Motorola" />
++          <option name="name" value="G20" />
++          <option name="screenDensity" value="280" />
++          <option name="screenX" value="720" />
++          <option name="screenY" value="1600" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="komodo" />
++          <option name="id" value="komodo" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 9 Pro XL" />
++          <option name="screenDensity" value="360" />
++          <option name="screenX" value="1008" />
++          <option name="screenY" value="2244" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="google" />
++          <option name="codename" value="lynx" />
++          <option name="id" value="lynx" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 7a" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="31" />
++          <option name="brand" value="google" />
++          <option name="codename" value="oriole" />
++          <option name="id" value="oriole" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 6" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="google" />
++          <option name="codename" value="panther" />
++          <option name="id" value="panther" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 7" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="q5q" />
++          <option name="id" value="q5q" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy Z Fold5" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1812" />
++          <option name="screenY" value="2176" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="30" />
++          <option name="brand" value="google" />
++          <option name="codename" value="r11" />
++          <option name="id" value="r11" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel Watch" />
++          <option name="screenDensity" value="320" />
++          <option name="screenX" value="384" />
++          <option name="screenY" value="384" />
++          <option name="type" value="WEAR_OS" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="30" />
++          <option name="brand" value="google" />
++          <option name="codename" value="redfin" />
++          <option name="id" value="redfin" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 5" />
++          <option name="screenDensity" value="440" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2340" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="shiba" />
++          <option name="id" value="shiba" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 8" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2400" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="33" />
++          <option name="brand" value="google" />
++          <option name="codename" value="tangorpro" />
++          <option name="id" value="tangorpro" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel Tablet" />
++          <option name="screenDensity" value="320" />
++          <option name="screenX" value="1600" />
++          <option name="screenY" value="2560" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="34" />
++          <option name="brand" value="google" />
++          <option name="codename" value="tokay" />
++          <option name="id" value="tokay" />
++          <option name="manufacturer" value="Google" />
++          <option name="name" value="Pixel 9" />
++          <option name="screenDensity" value="420" />
++          <option name="screenX" value="1080" />
++          <option name="screenY" value="2424" />
++        </PersistentDeviceSelectionData>
++        <PersistentDeviceSelectionData>
++          <option name="api" value="29" />
++          <option name="brand" value="samsung" />
++          <option name="codename" value="x1q" />
++          <option name="id" value="x1q" />
++          <option name="manufacturer" value="Samsung" />
++          <option name="name" value="Galaxy S20" />
++          <option name="screenDensity" value="480" />
++          <option name="screenX" value="1440" />
++          <option name="screenY" value="3200" />
++        </PersistentDeviceSelectionData>
++      </list>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/ktlint-plugin.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/ktlint-plugin.xml b/.idea/ktlint-plugin.xml
+new file mode 100644
+--- /dev/null	(date 1724083824129)
++++ b/.idea/ktlint-plugin.xml	(date 1724083824129)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="KtLint plugin">
++    <ktlintMode>DISTRACT_FREE</ktlintMode>
++  </component>
++</project>
+\ No newline at end of file

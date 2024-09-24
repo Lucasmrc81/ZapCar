@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="purple_200">#801792</color>
+    <color name="purple">#7E57C2</color>
+    <color name="gray">#E1E1E1</color>
+    <color name="fundo">#3949AB</color>
+    <color name="cart">#F5F5F5</color>
+    <color name="fundo1">#004D40</color>
+    <color name="nome">#1A237E</color>
+    <color name="fundo3">#263238</color>
+    <color name="primaryColor">#FF6200EE</color>
+    <color name="primaryDarkColor">#FF3700B3</color>
+    <color name="accentColor">#FF03DAC5</color>
+</resources>

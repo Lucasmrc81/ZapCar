@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">ZapCar</string>
+    <string name="Titulo">ZapCar!</string>
+    <string name="carros">Carros</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="preco">Preço</string>
+    <string name="bateria">Bateria</string>
+    <string name="potencia">Potência</string>
+    <string name="recarga">Recarga</string>
+    <string name="cooper_preco">R$ 229.990,00</string>
+    <string name="cooper_kwh">40,7 kwh</string>
+    <string name="cooper_hs">14 hs</string>
+    <string name="cooper_cv">184 CV</string>
+    <string name="leaf_preco">R$ 298.490,00</string>
+    <string name="leaf_kwh">40 kwh</string>
+    <string name="leaf_cv">150 CV</string>
+    <string name="leaf_hs">09 hs</string>
+    <string name="carro_1">Cooper E</string>
+    <string name="carro_2">Nissan Leaf</string>
+    <string name="digitar_Kwh">Preço Kwh</string>
+    <string name="km_percorrido">Km Percorrido</string>
+    <string name="Botão_calcular">Calcular</string>
+    <string name="resultado_r">Resultado: R</string>
+    <string name="calcular_autonomia">Calcular Autonomia</string>
+    <string name="no_wifi">Ops, internet não disponível :/</string>
+    <string name="response_error">Algo deu errado, por favor tente novamente mais tarde</string>
+    <string name="saved_calc">saved_calc</string>
+    <string name="marca">Marca</string>
+
+    <string-array name="filter">
+        <item>Crescente</item>
+        <item>Decrescente</item>
+        <item>Relevantes</item>
+    </string-array>
+</resources>
